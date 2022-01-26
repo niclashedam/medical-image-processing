@@ -14,38 +14,35 @@
  * limitations under the License.
  */
 
-#ifndef _XF_CANNY_CONFIG_H__
-#define _XF_CANNY_CONFIG_H__
+#ifndef _XF_THRESHOLD_CONFIG_H_
+#define _XF_THRESHOLD_CONFIG_H_
 
+#include "hls_stream.h"
 #include "ap_int.h"
+
 #include "common/xf_common.hpp"
 #include "common/xf_utility.hpp"
-#include "hls_stream.h"
-#include "imgproc/xf_canny.hpp"
-#include "imgproc/xf_edge_tracing.hpp"
+
+#include "imgproc/xf_threshold.hpp"
 #include "xf_config_params.h"
 
-#define WIDTH 1920
-#define HEIGHT 1080
+typedef ap_uint<8> ap_uint8_t;
+typedef ap_uint<64> ap_uint64_t;
 
+/*  set the height and weight  */
+#define HEIGHT 2160
+#define WIDTH 3840
+
+#if RO
+#define NPIX XF_NPPC8
+#endif
 #if NO
-#define INTYPE XF_NPPC1
-#define OUTTYPE XF_NPPC32
-#elif RO
-#define INTYPE XF_NPPC8
-#define OUTTYPE XF_NPPC32
+#define NPIX XF_NPPC1
 #endif
 
-#if L1NORM
-#define NORM_TYPE XF_L1NORM
-#elif L2NORM
-#define NORM_TYPE XF_L2NORM
-#endif
+void threshold_accel(xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX>& _src,
+                     xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX>& _dst,
+                     unsigned char thresh,
+                     unsigned char maxval);
 
-void canny_accel(xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, INTYPE>& _src,
-                 xf::cv::Mat<XF_2UC1, HEIGHT, WIDTH, XF_NPPC32>& _dst1,
-                 xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, XF_NPPC8>& _dst2,
-                 unsigned char low_threshold,
-                 unsigned char high_threshold);
-
-#endif
+#endif // end of _XF_THRESHOLD_CONFIG_H_
