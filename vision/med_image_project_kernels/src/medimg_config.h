@@ -40,7 +40,7 @@ typedef ap_uint<64> ap_uint64_t;
 #define NPIX XF_NPPC1
 #endif
 
-void threshold_accel(xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX>& _src,
+void medimg_accel(xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX>& _src,
                      xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX>& _dst,
                      unsigned char thresh,
                      unsigned char maxval);

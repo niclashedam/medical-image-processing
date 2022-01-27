@@ -15,10 +15,9 @@
  */
 
 #include "common/xf_headers.hpp"
-#include "xf_canny_config.h"
-
 #include "xcl2.hpp"
 #include <time.h>
+#include "medimg_config.h"
 
 typedef unsigned char NMSTYPE;
 
@@ -64,7 +63,7 @@ int main(int argc, char** argv) {
 
     // Initialize local program
     cl::Program program(context, devices, bins);
-    cl::Kernel krnl(program, "canny_accel");
+    cl::Kernel krnl(program, "medimg_accel");
 
     // Define memory buffers for input and ouput image
     std::vector<cl::Memory> inBufVec, outBufVec;

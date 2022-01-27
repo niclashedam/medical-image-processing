@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-#include "xf_threshold_config.h"
+#include "medimg_config.h"
 
 extern "C" {
-void threshold_accel(ap_uint<INPUT_PTR_WIDTH>* img_inp,
+void medimg_accel(ap_uint<INPUT_PTR_WIDTH>* img_inp,
                      ap_uint<OUTPUT_PTR_WIDTH>* img_out,
                      unsigned char thresh,
                      unsigned char maxval,
@@ -55,6 +55,8 @@ void threshold_accel(ap_uint<INPUT_PTR_WIDTH>* img_inp,
     xf::cv::Array2xfMat<INPUT_PTR_WIDTH, XF_8UC1, HEIGHT, WIDTH, NPIX>(img_inp, in_mat);
 
     xf::cv::Threshold<THRESH_TYPE, XF_8UC1, HEIGHT, WIDTH, NPIX>(in_mat, out_mat, thresh, maxval);
+
+
 
     xf::cv::xfMat2Array<OUTPUT_PTR_WIDTH, XF_8UC1, HEIGHT, WIDTH, NPIX>(out_mat, img_out);
 }

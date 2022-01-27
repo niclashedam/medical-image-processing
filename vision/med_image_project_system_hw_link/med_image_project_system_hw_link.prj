@@ -3,23 +3,72 @@
   <configuration name="Emulation-SW" id="com.xilinx.ide.accel.config.hwlink.sw_emu.609882781">
     <configBuildOptions xsi:type="hwlink:LinkOptions">
       <binaryContainers name="krnl_canny">
-        <kernels name="canny_accel" projectName="med_image_project_kernels">
-          <computeUnits name="canny_accel_1" slr=""/>
+        <kernels name="erosion" projectName="med_image_project_kernels">
+          <computeUnits name="erosion_1" slr="">
+            <args name="img_in" master="true" memory=""/>
+            <args name="process_shape" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="height"/>
+            <args name="width"/>
+          </computeUnits>
         </kernels>
-        <kernels name="edgetracing_accel" projectName="med_image_project_kernels">
-          <computeUnits name="edgetracing_accel_1" slr=""/>
+        <kernels name="medimg_accel" projectName="med_image_project_kernels">
+          <computeUnits name="medimg_accel_1" slr="">
+            <args name="img_inp" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="thresh"/>
+            <args name="maxval"/>
+            <args name="rows"/>
+            <args name="cols"/>
+          </computeUnits>
         </kernels>
       </binaryContainers>
     </configBuildOptions>
+    <lastBuildOptions xsi:type="hwlink:LinkOptions">
+      <binaryContainers name="krnl_canny">
+        <kernels name="erosion" projectName="med_image_project_kernels">
+          <computeUnits name="erosion_1" slr="">
+            <args name="img_in" master="true" memory=""/>
+            <args name="process_shape" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="height"/>
+            <args name="width"/>
+          </computeUnits>
+        </kernels>
+        <kernels name="medimg_accel" projectName="med_image_project_kernels">
+          <computeUnits name="medimg_accel_1" slr="">
+            <args name="img_inp" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="thresh"/>
+            <args name="maxval"/>
+            <args name="rows"/>
+            <args name="cols"/>
+          </computeUnits>
+        </kernels>
+      </binaryContainers>
+    </lastBuildOptions>
   </configuration>
   <configuration name="Emulation-HW" id="com.xilinx.ide.accel.config.hwlink.hw_emu.1910377425">
     <configBuildOptions xsi:type="hwlink:LinkOptions" target="hw_emu">
       <binaryContainers name="krnl_canny">
-        <kernels name="canny_accel" projectName="med_image_project_kernels">
-          <computeUnits name="canny_accel_1" slr=""/>
+        <kernels name="erosion" projectName="med_image_project_kernels">
+          <computeUnits name="erosion_1" slr="">
+            <args name="img_in" master="true" memory=""/>
+            <args name="process_shape" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="height"/>
+            <args name="width"/>
+          </computeUnits>
         </kernels>
-        <kernels name="edgetracing_accel" projectName="med_image_project_kernels">
-          <computeUnits name="edgetracing_accel_1" slr=""/>
+        <kernels name="medimg_accel" projectName="med_image_project_kernels">
+          <computeUnits name="medimg_accel_1" slr="">
+            <args name="img_inp" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="thresh"/>
+            <args name="maxval"/>
+            <args name="rows"/>
+            <args name="cols"/>
+          </computeUnits>
         </kernels>
       </binaryContainers>
     </configBuildOptions>
@@ -27,11 +76,24 @@
   <configuration name="Hardware" id="com.xilinx.ide.accel.config.hwlink.hw.2092063971">
     <configBuildOptions xsi:type="hwlink:LinkOptions" target="hw">
       <binaryContainers name="krnl_canny">
-        <kernels name="canny_accel" projectName="med_image_project_kernels">
-          <computeUnits name="canny_accel_1" slr=""/>
+        <kernels name="erosion" projectName="med_image_project_kernels">
+          <computeUnits name="erosion_1" slr="">
+            <args name="img_in" master="true" memory=""/>
+            <args name="process_shape" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="height"/>
+            <args name="width"/>
+          </computeUnits>
         </kernels>
-        <kernels name="edgetracing_accel" projectName="med_image_project_kernels">
-          <computeUnits name="edgetracing_accel_1" slr=""/>
+        <kernels name="medimg_accel" projectName="med_image_project_kernels">
+          <computeUnits name="medimg_accel_1" slr="">
+            <args name="img_inp" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="thresh"/>
+            <args name="maxval"/>
+            <args name="rows"/>
+            <args name="cols"/>
+          </computeUnits>
         </kernels>
       </binaryContainers>
     </configBuildOptions>

@@ -33,15 +33,19 @@
                             							
                             <targetPlatform id="com.xilinx.ide.accel.config.sw_emu.x86.500247077..1383178518" name=""/>
                             							
-                            <builder buildPath="${workspace_loc:/med_image_project}/Emulation-SW" enableAutoBuild="true" id="com.xilinx.ide.accel.builder.host.2095016079" managedBuildOn="true" name="Accelerated Host Application Builder.Emulation-SW" superClass="com.xilinx.ide.accel.builder.host"/>
+                            <builder buildPath="${workspace_loc:/med_image_project}/Emulation-SW" enableAutoBuild="true" id="com.xilinx.ide.accel.builder.host.2095016079" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Accelerated Host Application Builder" superClass="com.xilinx.ide.accel.builder.host"/>
                             							
                             <tool id="com.xilinx.ide.accel.tool.emconfigutil.1632538894" name="emconfigutil" superClass="com.xilinx.ide.accel.tool.emconfigutil"/>
                             							
                             <tool id="com.xilinx.ide.accel.tool.gcc_compiler.sw_emu.debug.1765521281" name="GCC Host Compiler (x86_64)" superClass="com.xilinx.ide.accel.tool.gcc_compiler.sw_emu.debug">
                                 								
-                                <option id="com.xilinx.ide.accel.cpp.compiler.include.paths.1006896488" superClass="com.xilinx.ide.accel.cpp.compiler.include.paths" useByScannerDiscovery="false" valueType="includePath">
+                                <option id="com.xilinx.ide.accel.cpp.compiler.include.paths.1006896488" name="Include paths (-I)" superClass="com.xilinx.ide.accel.cpp.compiler.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
                                     <listOptionValue builtIn="false" value="${workspace_loc:${ProjName}/src/build}"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:${ProjName}/libs/xf_opencv/L1/include/}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:${ProjName}/libs/xf_opencv/ext/xcl2/}&quot;"/>
                                     									
                                     <listOptionValue builtIn="false" value="${env_var:OPENCV_INCLUDE}"/>
                                     									
@@ -51,7 +55,7 @@
                                     								
                                 </option>
                                 								
-                                <option id="gnu.cpp.compiler.option.other.other.1762389365" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-O3 -c -fmessage-length=0" valueType="string"/>
+                                <option id="gnu.cpp.compiler.option.other.other.1762389365" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-O3 -c -fmessage-length=0" valueType="string"/>
                                 								
                                 <inputType id="com.xilinx.ide.accel.managedbuild.input.cpp.1610362640" superClass="com.xilinx.ide.accel.managedbuild.input.cpp"/>
                                 								
@@ -61,11 +65,29 @@
                             							
                             <tool id="com.xilinx.ide.accel.tool.gcc_linker.hw.619631636" name="GCC Host Linker (x86_64)" superClass="com.xilinx.ide.accel.tool.gcc_linker.hw">
                                 								
-                                <option id="com.xilinx.ide.accel.cpp.linker.option.paths.689182534" superClass="com.xilinx.ide.accel.cpp.linker.option.paths" valueType="libPaths">
+                                <option id="com.xilinx.ide.accel.cpp.linker.option.paths.689182534" name="Library search path (-L)" superClass="com.xilinx.ide.accel.cpp.linker.option.paths" useByScannerDiscovery="false" valueType="libPaths">
                                     									
                                     <listOptionValue builtIn="false" value="${env_var:OPENCV_LIB}"/>
                                     									
                                     <listOptionValue builtIn="false" value="${env_var:XILINX_XRT}/lib/"/>
+                                    								
+                                </option>
+                                								
+                                <option id="com.xilinx.ide.accel.cpp.linker.option.libs.x86.187796917" name="Libraries (-l)" superClass="com.xilinx.ide.accel.cpp.linker.option.libs.x86" useByScannerDiscovery="false" valueType="libFiles">
+                                    									
+                                    <listOptionValue builtIn="false" value="xilinxopencl"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="opencv_imgproc"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="opencv_highgui"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="opencv_core"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="pthread"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="rt"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="stdc++"/>
                                     								
                                 </option>
                                 								
@@ -127,13 +149,13 @@
                             							
                             <targetPlatform id="com.xilinx.ide.accel.config.hw_emu.x86.1705330623..1051380410" name=""/>
                             							
-                            <builder buildPath="${workspace_loc:/med_image_project}/Emulation-HW" enableAutoBuild="true" id="com.xilinx.ide.accel.builder.host.1795446469" managedBuildOn="true" name="Accelerated Host Application Builder.Emulation-HW" superClass="com.xilinx.ide.accel.builder.host"/>
+                            <builder buildPath="${workspace_loc:/med_image_project}/Emulation-HW" enableAutoBuild="true" id="com.xilinx.ide.accel.builder.host.1795446469" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Accelerated Host Application Builder" superClass="com.xilinx.ide.accel.builder.host"/>
                             							
                             <tool id="com.xilinx.ide.accel.tool.emconfigutil.1910469161" name="emconfigutil" superClass="com.xilinx.ide.accel.tool.emconfigutil"/>
                             							
                             <tool id="com.xilinx.ide.accel.tool.gcc_compiler.hw_emu.debug.1671040285" name="GCC Host Compiler (x86_64)" superClass="com.xilinx.ide.accel.tool.gcc_compiler.hw_emu.debug">
                                 								
-                                <option id="com.xilinx.ide.accel.cpp.compiler.include.paths.292276466" superClass="com.xilinx.ide.accel.cpp.compiler.include.paths" useByScannerDiscovery="false" valueType="includePath">
+                                <option id="com.xilinx.ide.accel.cpp.compiler.include.paths.292276466" name="Include paths (-I)" superClass="com.xilinx.ide.accel.cpp.compiler.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
                                     <listOptionValue builtIn="false" value="${workspace_loc:${ProjName}/src/build}"/>
                                     									
@@ -145,7 +167,7 @@
                                     								
                                 </option>
                                 								
-                                <option id="gnu.cpp.compiler.option.other.other.29078855" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-O3 -c -fmessage-length=0" valueType="string"/>
+                                <option id="gnu.cpp.compiler.option.other.other.29078855" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-O3 -c -fmessage-length=0" valueType="string"/>
                                 								
                                 <inputType id="com.xilinx.ide.accel.managedbuild.input.cpp.1347279338" superClass="com.xilinx.ide.accel.managedbuild.input.cpp"/>
                                 								
@@ -155,7 +177,7 @@
                             							
                             <tool id="com.xilinx.ide.accel.tool.gcc_linker.hw.1278298024" name="GCC Host Linker (x86_64)" superClass="com.xilinx.ide.accel.tool.gcc_linker.hw">
                                 								
-                                <option id="com.xilinx.ide.accel.cpp.linker.option.paths.1427142176" superClass="com.xilinx.ide.accel.cpp.linker.option.paths" valueType="libPaths">
+                                <option id="com.xilinx.ide.accel.cpp.linker.option.paths.1427142176" name="Library search path (-L)" superClass="com.xilinx.ide.accel.cpp.linker.option.paths" valueType="libPaths">
                                     									
                                     <listOptionValue builtIn="false" value="${env_var:OPENCV_LIB}"/>
                                     									
@@ -221,13 +243,13 @@
                             							
                             <targetPlatform id="com.xilinx.ide.accel.config.hw.x86.1744382681..748590259" name=""/>
                             							
-                            <builder buildPath="${workspace_loc:/med_image_project}/Hardware" enableAutoBuild="true" id="com.xilinx.ide.accel.builder.host.1591252010" managedBuildOn="true" name="Accelerated Host Application Builder.Hardware" superClass="com.xilinx.ide.accel.builder.host"/>
+                            <builder buildPath="${workspace_loc:/med_image_project}/Hardware" enableAutoBuild="true" id="com.xilinx.ide.accel.builder.host.1591252010" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Accelerated Host Application Builder" superClass="com.xilinx.ide.accel.builder.host"/>
                             							
                             <tool id="com.xilinx.ide.accel.tool.emconfigutil.1322933921" name="emconfigutil" superClass="com.xilinx.ide.accel.tool.emconfigutil"/>
                             							
                             <tool id="com.xilinx.ide.accel.tool.gcc_compiler.hw.650247193" name="GCC Host Compiler (x86_64)" superClass="com.xilinx.ide.accel.tool.gcc_compiler.hw">
                                 								
-                                <option id="com.xilinx.ide.accel.cpp.compiler.include.paths.732920302" superClass="com.xilinx.ide.accel.cpp.compiler.include.paths" useByScannerDiscovery="false" valueType="includePath">
+                                <option id="com.xilinx.ide.accel.cpp.compiler.include.paths.732920302" name="Include paths (-I)" superClass="com.xilinx.ide.accel.cpp.compiler.include.paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
                                     <listOptionValue builtIn="false" value="${workspace_loc:${ProjName}/src/build}"/>
                                     									
@@ -239,7 +261,7 @@
                                     								
                                 </option>
                                 								
-                                <option id="gnu.cpp.compiler.option.other.other.696991925" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-O3 -c -fmessage-length=0" valueType="string"/>
+                                <option id="gnu.cpp.compiler.option.other.other.696991925" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-O3 -c -fmessage-length=0" valueType="string"/>
                                 								
                                 <inputType id="com.xilinx.ide.accel.managedbuild.input.cpp.1239248510" superClass="com.xilinx.ide.accel.managedbuild.input.cpp"/>
                                 								
@@ -249,7 +271,7 @@
                             							
                             <tool id="com.xilinx.ide.accel.tool.gcc_linker.hw.404808616" name="GCC Host Linker (x86_64)" superClass="com.xilinx.ide.accel.tool.gcc_linker.hw">
                                 								
-                                <option id="com.xilinx.ide.accel.cpp.linker.option.paths.223542506" superClass="com.xilinx.ide.accel.cpp.linker.option.paths" valueType="libPaths">
+                                <option id="com.xilinx.ide.accel.cpp.linker.option.paths.223542506" name="Library search path (-L)" superClass="com.xilinx.ide.accel.cpp.linker.option.paths" valueType="libPaths">
                                     									
                                     <listOptionValue builtIn="false" value="${env_var:OPENCV_LIB}"/>
                                     									
@@ -300,5 +322,7 @@
         <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
         	
     </storageModule>
+    	
+    <storageModule moduleId="refreshScope"/>
     
 </cproject>
