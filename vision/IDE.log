@@ -7,12 +7,79 @@
 10:19:27 INFO  : plnx-install-location is set to ''
 10:19:27 INFO  : Successfully done query RDI_DATADIR 
 10:19:27 INFO  : Successfully done setting workspace for the tool. 
-15:13:43 INFO  : Logs will be stored at '/home/centos/medical-image-processing/vision/IDE.log'.
-15:13:44 INFO  : Launching XSCT server: xsct -n  -interactive /home/centos/medical-image-processing/vision/temp_xsdb_launch_script.tcl
-15:13:44 INFO  : Platform repository initialization has completed.
-15:13:44 INFO  : Registering command handlers for Vitis TCF services
-15:13:48 INFO  : XSCT server has started successfully.
-15:13:49 INFO  : Successfully done setting XSCT server connection channel  
-15:13:49 INFO  : plnx-install-location is set to ''
-15:13:49 INFO  : Successfully done query RDI_DATADIR 
-15:13:49 INFO  : Successfully done setting workspace for the tool. 
+09:29:43 INFO  : Logs will be stored at '/home/centos/project/medical-image-processing/vision/IDE.log'.
+09:29:47 INFO  : Launching XSCT server: xsct -n  -interactive /home/centos/project/medical-image-processing/vision/temp_xsdb_launch_script.tcl
+09:29:47 INFO  : Platform repository initialization has completed.
+09:29:49 INFO  : Registering command handlers for Vitis TCF services
+09:29:52 INFO  : XSCT server has started successfully.
+09:29:52 INFO  : plnx-install-location is set to ''
+09:29:52 INFO  : Successfully done setting XSCT server connection channel  
+09:29:52 INFO  : Successfully done query RDI_DATADIR 
+09:29:52 INFO  : Successfully done setting workspace for the tool. 
+10:18:56 INFO  : Removed kernel '[threshold_accel - med_image_project_kernels/null]' in binary container 'krnl_canny' of project 'med_image_project_system_hw_link'
+10:19:53 INFO  : Added kernel '[medimg_accel - med_image_project_kernels/src/medimg_accel.cpp]' in binary container 'krnl_canny' of project 'med_image_project_system_hw_link'
+10:37:31 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/512x512.jpg
+10:37:42 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/512x512.jpg
+10:39:52 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/512x512.jpg
+11:11:42 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/512x512.jpg
+11:14:20 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/512x512.jpg
+11:16:56 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+11:22:27 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+11:26:06 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+11:28:02 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+11:28:30 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+11:31:54 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+11:37:01 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+11:39:02 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+11:40:36 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+11:42:36 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+11:42:55 INFO  : Build configuration of 'med_image_project_system_hw_link' is updated to 'Emulation-HW'
+11:42:55 INFO  : Build configuration of 'med_image_project_kernels' is updated to 'Emulation-HW'
+11:42:55 INFO  : Build configuration of 'med_image_project' is updated to 'Emulation-HW'
+12:51:50 INFO  : Launching executable: Emulation-HW/med_image_project ../../data/512x512.jpg
+12:52:15 INFO  : Launching executable: Emulation-HW/med_image_project ../../data/blood.jpg
+12:54:59 INFO  : Launching executable: Emulation-HW/med_image_project ../../data/blood.jpg
+13:01:24 INFO  : Build configuration of 'med_image_project_system_hw_link' is updated to 'Emulation-SW'
+13:01:24 INFO  : Build configuration of 'med_image_project_kernels' is updated to 'Emulation-SW'
+13:01:24 INFO  : Build configuration of 'med_image_project' is updated to 'Emulation-SW'
+13:19:00 INFO  : Removed kernel '[erosion - med_image_project_kernels/null]' in binary container 'krnl_medimg' of project 'med_image_project_system_hw_link'
+13:30:14 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+13:31:00 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+13:31:41 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+13:43:31 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+13:45:25 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+13:48:13 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+13:54:01 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+13:55:17 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+14:00:01 ERROR : Failed to run the application using 'med_image_project_system-sw_emu_med_image_project'.
+14:01:48 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+14:20:12 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+14:20:30 INFO  : Build configuration of 'med_image_project_system_hw_link' is updated to 'Emulation-HW'
+14:20:30 INFO  : Build configuration of 'med_image_project_kernels' is updated to 'Emulation-HW'
+14:20:30 INFO  : Build configuration of 'med_image_project' is updated to 'Emulation-HW'
+14:37:40 INFO  : Launching executable: Emulation-HW/med_image_project ../../data/blood.jpg
+14:51:35 INFO  : Build configuration of 'med_image_project_system_hw_link' is updated to 'Emulation-SW'
+14:51:35 INFO  : Build configuration of 'med_image_project_kernels' is updated to 'Emulation-SW'
+14:51:35 INFO  : Build configuration of 'med_image_project' is updated to 'Emulation-SW'
+15:15:07 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+15:15:58 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg
+15:21:17 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 50 50
+15:22:52 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 50 50
+15:23:25 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 50 50
+15:24:07 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 50 50
+15:25:02 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 50 255
+15:25:44 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 100 255
+15:29:00 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 100 255
+15:29:37 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 200 255
+15:29:46 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 200 255
+15:30:38 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 210 255
+15:35:20 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 210 255
+15:40:26 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 210 255
+15:41:05 INFO  : Launching executable: Emulation-SW/med_image_project ../../data/blood.jpg 50 255
+15:42:24 INFO  : Build configuration of 'med_image_project_system' is updated to 'Emulation-HW'
+15:42:24 INFO  : Build configuration of system project is automatically updated to 'Emulation-HW'.
+15:42:24 INFO  : Build configuration of 'med_image_project_system_hw_link' is updated to 'Emulation-HW'
+15:42:24 INFO  : Build configuration of 'med_image_project' is updated to 'Emulation-HW'
+15:46:36 INFO  : Launching executable: Emulation-HW/med_image_project ../../data/blood.jpg
+15:49:31 INFO  : Launching executable: Emulation-HW/med_image_project ../../data/blood.jpg 50 255
+15:50:12 INFO  : Launching executable: Emulation-HW/med_image_project ../../data/blood.jpg 50 255
