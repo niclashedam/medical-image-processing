@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <hwkernel:HwKernelProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:hwkernel="http://www.xilinx.com/acceleration/hwkernel" name="med_image_project_kernels" platform="/home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm" platformUID="xilinx:aws-vu9p-f1:shell-v04261818:201920.2(custom)" systemProject="med_image_project_system" cpu="">
-  <configuration name="Emulation-SW" id="com.xilinx.ide.accel.config.hwkernel.sw_emu.698458261">
+  <configuration name="Emulation-SW" id="com.xilinx.ide.accel.config.hwkernel.sw_emu.698458261" dirty="true">
     <configBuildOptions xsi:type="hwkernel:KernelOptions" kernelDebug="true">
       <kernels name="medimg_accel" sourceFile="src/medimg_accel.cpp">
         <args name="img_inp" master="true"/>
