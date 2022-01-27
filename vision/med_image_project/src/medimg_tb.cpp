@@ -29,8 +29,6 @@ int main(int argc, char** argv) {
 
     cv::Mat in_img, out_img, ocv_thresh, ocv_erode, bw_img, ocv_dilate;
 
-    unsigned short in_width, in_height;
-
     /*  reading in the color image  */
     in_img = cv::imread(argv[1], 0);
 
@@ -41,8 +39,8 @@ int main(int argc, char** argv) {
         return 0;
     }
 
-    in_width = in_img.cols;
-    in_height = in_img.rows;
+    unsigned short in_width = in_img.cols;
+    unsigned short in_height = in_img.rows;
 
     out_img.create(in_img.rows, in_img.cols, in_img.depth());
     ocv_thresh.create(in_img.rows, in_img.cols, in_img.depth());
@@ -67,13 +65,13 @@ int main(int argc, char** argv) {
     }
 
     size_t vec_in_size_bytes = FILTER_SIZE * FILTER_SIZE * sizeof(unsigned char);
-    //size_t vec_in_size_bytes = FILTER_SIZE * FILTER_SIZE;
+
 
     cv::threshold(bw_img, ocv_thresh, thresh, maxval, THRESH_TYPE);
+    cv::dilate(ocv_thresh, ocv_dilate, element);
+    cv::erode(ocv_dilate, ocv_erode, element);
     imwrite("thresh_img.jpg", ocv_thresh);
-    cv::erode(ocv_thresh, ocv_erode, element);
     imwrite("erode_img.jpg", ocv_erode);
-    cv::dilate(ocv_erode, ocv_dilate, element);
     imwrite("dilate_img.jpg", ocv_dilate);
 
     /////////////////////////////////////// CL ////////////////////////

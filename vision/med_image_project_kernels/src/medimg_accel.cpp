@@ -39,10 +39,11 @@ void medimg_accel(ap_uint<INPUT_PTR_WIDTH>* img_inp,
     const int pNPC1 = NPIX;
 
     // Copy the shape data:
-    unsigned char _kernel[FILTER_SIZE * FILTER_SIZE];
+    unsigned char _kernel_erode[FILTER_SIZE * FILTER_SIZE], _kernel_dilate[FILTER_SIZE * FILTER_SIZE];
     for (unsigned int i = 0; i < FILTER_SIZE * FILTER_SIZE; ++i) {
         #pragma HLS PIPELINE
-        _kernel[i] = process_shape[i];
+    	_kernel_erode[i] = process_shape[i];
+    	_kernel_dilate[i] = process_shape[i];
     }
 
     //xf::cv::Mat<TYPE, HEIGHT, WIDTH, NPC1> thresholdOut(height, width);
@@ -56,8 +57,8 @@ void medimg_accel(ap_uint<INPUT_PTR_WIDTH>* img_inp,
     xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX> threshold_out(rows, cols);
 	#pragma HLS stream variable=threshold_out.data depth=2
 
-    xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX> erode_out(rows, cols);
-	#pragma HLS stream variable=erode_out.data depth=2
+    xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX> morph_out(rows, cols);
+	#pragma HLS stream variable=morph_out.data depth=2
 
     #pragma HLS DATAFLOW
 
@@ -65,9 +66,9 @@ void medimg_accel(ap_uint<INPUT_PTR_WIDTH>* img_inp,
 
     xf::cv::Threshold<THRESH_TYPE, XF_8UC1, HEIGHT, WIDTH, NPIX>(in_mat, threshold_out, thresh, maxval);
 
-    xf::cv::erode<XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, KERNEL_SHAPE, FILTER_SIZE, FILTER_SIZE, ITERATIONS, NPC1>(threshold_out, erode_out, _kernel);
+    xf::cv::dilate<XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, KERNEL_SHAPE, FILTER_SIZE, FILTER_SIZE, ITERATIONS, NPC1>(threshold_out, morph_out, _kernel_dilate);
 
-    xf::cv::dilate<XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, KERNEL_SHAPE, FILTER_SIZE, FILTER_SIZE, ITERATIONS, NPC1>(erode_out, out_mat, _kernel);
+    xf::cv::erode<XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, KERNEL_SHAPE, FILTER_SIZE, FILTER_SIZE, ITERATIONS, NPC1>(morph_out, out_mat, _kernel_erode);
 
     xf::cv::xfMat2Array<OUTPUT_PTR_WIDTH, XF_8UC1, HEIGHT, WIDTH, NPIX>(out_mat, img_out);
 }
