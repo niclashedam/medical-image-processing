@@ -2,30 +2,54 @@
 <hwlink:HwLinkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:hwlink="http://www.xilinx.com/acceleration/hwlink" name="med_image_project_system_hw_link" platform="/home/centos/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2/xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm" systemProject="med_image_project_system" cpu="pl">
   <configuration name="Emulation-SW" id="com.xilinx.ide.accel.config.hwlink.sw_emu.609882781">
     <configBuildOptions xsi:type="hwlink:LinkOptions">
-      <binaryContainers name="krnl_canny">
-        <kernels name="erosion" projectName="med_image_project_kernels">
-          <computeUnits name="erosion_1" slr="">
-            <args name="img_in" master="true" memory=""/>
-            <args name="process_shape" master="true" memory=""/>
-            <args name="img_out" master="true" memory=""/>
-            <args name="height"/>
-            <args name="width"/>
-          </computeUnits>
-        </kernels>
+      <binaryContainers name="krnl_medimg">
         <kernels name="medimg_accel" projectName="med_image_project_kernels">
           <computeUnits name="medimg_accel_1" slr="">
             <args name="img_inp" master="true" memory=""/>
             <args name="img_out" master="true" memory=""/>
-            <args name="thresh"/>
-            <args name="maxval"/>
+            <args name="process_shape" master="true" memory=""/>
             <args name="rows"/>
             <args name="cols"/>
+            <args name="thresh"/>
+            <args name="maxval"/>
           </computeUnits>
         </kernels>
       </binaryContainers>
     </configBuildOptions>
     <lastBuildOptions xsi:type="hwlink:LinkOptions">
-      <binaryContainers name="krnl_canny">
+      <binaryContainers name="krnl_medimg">
+        <kernels name="medimg_accel" projectName="med_image_project_kernels">
+          <computeUnits name="medimg_accel_1" slr="">
+            <args name="img_inp" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="rows"/>
+            <args name="cols"/>
+            <args name="thresh"/>
+            <args name="maxval"/>
+            <args name="process_shape" master="true" memory=""/>
+          </computeUnits>
+        </kernels>
+      </binaryContainers>
+    </lastBuildOptions>
+  </configuration>
+  <configuration name="Emulation-HW" id="com.xilinx.ide.accel.config.hwlink.hw_emu.1910377425">
+    <configBuildOptions xsi:type="hwlink:LinkOptions" target="hw_emu">
+      <binaryContainers name="krnl_medimg">
+        <kernels name="medimg_accel" projectName="med_image_project_kernels">
+          <computeUnits name="medimg_accel_1" slr="">
+            <args name="img_inp" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="process_shape" master="true" memory=""/>
+            <args name="rows"/>
+            <args name="cols"/>
+            <args name="thresh"/>
+            <args name="maxval"/>
+          </computeUnits>
+        </kernels>
+      </binaryContainers>
+    </configBuildOptions>
+    <lastBuildOptions xsi:type="hwlink:LinkOptions" target="hw_emu">
+      <binaryContainers name="krnl_medimg">
         <kernels name="erosion" projectName="med_image_project_kernels">
           <computeUnits name="erosion_1" slr="">
             <args name="img_in" master="true" memory=""/>
@@ -48,51 +72,18 @@
       </binaryContainers>
     </lastBuildOptions>
   </configuration>
-  <configuration name="Emulation-HW" id="com.xilinx.ide.accel.config.hwlink.hw_emu.1910377425">
-    <configBuildOptions xsi:type="hwlink:LinkOptions" target="hw_emu">
-      <binaryContainers name="krnl_canny">
-        <kernels name="erosion" projectName="med_image_project_kernels">
-          <computeUnits name="erosion_1" slr="">
-            <args name="img_in" master="true" memory=""/>
-            <args name="process_shape" master="true" memory=""/>
-            <args name="img_out" master="true" memory=""/>
-            <args name="height"/>
-            <args name="width"/>
-          </computeUnits>
-        </kernels>
-        <kernels name="medimg_accel" projectName="med_image_project_kernels">
-          <computeUnits name="medimg_accel_1" slr="">
-            <args name="img_inp" master="true" memory=""/>
-            <args name="img_out" master="true" memory=""/>
-            <args name="thresh"/>
-            <args name="maxval"/>
-            <args name="rows"/>
-            <args name="cols"/>
-          </computeUnits>
-        </kernels>
-      </binaryContainers>
-    </configBuildOptions>
-  </configuration>
   <configuration name="Hardware" id="com.xilinx.ide.accel.config.hwlink.hw.2092063971">
     <configBuildOptions xsi:type="hwlink:LinkOptions" target="hw">
-      <binaryContainers name="krnl_canny">
-        <kernels name="erosion" projectName="med_image_project_kernels">
-          <computeUnits name="erosion_1" slr="">
-            <args name="img_in" master="true" memory=""/>
-            <args name="process_shape" master="true" memory=""/>
-            <args name="img_out" master="true" memory=""/>
-            <args name="height"/>
-            <args name="width"/>
-          </computeUnits>
-        </kernels>
+      <binaryContainers name="krnl_medimg">
         <kernels name="medimg_accel" projectName="med_image_project_kernels">
           <computeUnits name="medimg_accel_1" slr="">
             <args name="img_inp" master="true" memory=""/>
             <args name="img_out" master="true" memory=""/>
-            <args name="thresh"/>
-            <args name="maxval"/>
+            <args name="process_shape" master="true" memory=""/>
             <args name="rows"/>
             <args name="cols"/>
+            <args name="thresh"/>
+            <args name="maxval"/>
           </computeUnits>
         </kernels>
       </binaryContainers>

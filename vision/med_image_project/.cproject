@@ -159,6 +159,10 @@
                                     									
                                     <listOptionValue builtIn="false" value="${workspace_loc:${ProjName}/src/build}"/>
                                     									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:${ProjName}/libs/xf_opencv/ext/xcl2/}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:${ProjName}/libs/xf_opencv/L1/include/}&quot;"/>
+                                    									
                                     <listOptionValue builtIn="false" value="${env_var:OPENCV_INCLUDE}"/>
                                     									
                                     <listOptionValue builtIn="false" value="${env_var:XILINX_XRT}/include/"/>
@@ -177,11 +181,29 @@
                             							
                             <tool id="com.xilinx.ide.accel.tool.gcc_linker.hw.1278298024" name="GCC Host Linker (x86_64)" superClass="com.xilinx.ide.accel.tool.gcc_linker.hw">
                                 								
-                                <option id="com.xilinx.ide.accel.cpp.linker.option.paths.1427142176" name="Library search path (-L)" superClass="com.xilinx.ide.accel.cpp.linker.option.paths" valueType="libPaths">
+                                <option id="com.xilinx.ide.accel.cpp.linker.option.paths.1427142176" name="Library search path (-L)" superClass="com.xilinx.ide.accel.cpp.linker.option.paths" useByScannerDiscovery="false" valueType="libPaths">
                                     									
                                     <listOptionValue builtIn="false" value="${env_var:OPENCV_LIB}"/>
                                     									
                                     <listOptionValue builtIn="false" value="${env_var:XILINX_XRT}/lib/"/>
+                                    								
+                                </option>
+                                								
+                                <option id="com.xilinx.ide.accel.cpp.linker.option.libs.x86.354033625" superClass="com.xilinx.ide.accel.cpp.linker.option.libs.x86" useByScannerDiscovery="false" valueType="libFiles">
+                                    									
+                                    <listOptionValue builtIn="false" value="xilinxopencl"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="opencv_core"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="opencv_highgui"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="opencv_imgproc"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="pthread"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="rt"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="stdc++"/>
                                     								
                                 </option>
                                 								
@@ -210,6 +232,8 @@
             </storageModule>
             			
             <storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+            			
+            <storageModule moduleId="ilg.gnuarmeclipse.managedbuild.packs"/>
             		
         </cconfiguration>
         		

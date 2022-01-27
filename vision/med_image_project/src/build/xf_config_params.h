@@ -26,3 +26,11 @@
 
 #define INPUT_PTR_WIDTH 64
 #define OUTPUT_PTR_WIDTH 64
+
+#define FILTER_SIZE 3
+
+#define GRAY 1
+
+#define KERNEL_SHAPE XF_SHAPE_CROSS
+
+#define ITERATIONS 1

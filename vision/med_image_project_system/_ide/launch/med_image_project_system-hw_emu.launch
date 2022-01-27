@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.xilinx.sdx.system.debug.launch.SdxMultiLaunchDelegate">
+    <booleanAttribute key="aie_event_trace.configuration.enabled" value="false"/>
+    <listAttribute key="aie_event_trace.configurations"/>
+    <stringAttribute key="aie_event_trace.debug_ip_layout_file" value=""/>
+    <booleanAttribute key="aie_event_trace.enabled" value="false"/>
+    <stringAttribute key="aie_event_trace.metadata_file" value=""/>
+    <stringAttribute key="aie_event_trace.trace_address" value="0x8F0000000"/>
+    <stringAttribute key="aie_event_trace.trace_depth" value="0x80000"/>
+    <booleanAttribute key="aie_event_trace.xrt_flow" value="false"/>
     <booleanAttribute key="com.xilinx.sdk.tcf.debug.ui.breakpoint.main" value="true"/>
     <stringAttribute key="com.xilinx.sdk.tcf.debug.ui.exec.script" value="false"/>
     <stringAttribute key="com.xilinx.sdk.tcf.debug.ui.exec.script.location" value=""/>
@@ -55,7 +63,7 @@
     <stringAttribute key="launch.version" value=""/>
     <booleanAttribute key="multilaunch.active_build_config" value="false"/>
     <mapAttribute key="multilaunch.app_args">
-        <mapEntry key="med_image_project" value="../../data/512x512.jpg"/>
+        <mapEntry key="med_image_project" value="../../data/blood.jpg"/>
     </mapAttribute>
     <mapAttribute key="multilaunch.app_launch_cfg_files"/>
     <booleanAttribute key="multilaunch.auto_update_args" value="false"/>
@@ -89,4 +97,23 @@
     <stringAttribute key="profile.enable" value="true"/>
     <stringAttribute key="profile.mode" value="default"/>
     <stringAttribute key="profile.stall.trace" value="off"/>
+    <stringAttribute key="profile_options.aie_event_trace" value="false"/>
+    <stringAttribute key="profile_options.aie_event_trace_level" value="functions"/>
+    <stringAttribute key="profile_options.aie_profile" value="false"/>
+    <stringAttribute key="profile_options.aie_profile_core_metrics" value="heat_map"/>
+    <stringAttribute key="profile_options.aie_profile_memory_metrics" value="dma_locks"/>
+    <stringAttribute key="profile_options.aie_trace_buffer_size" value="1"/>
+    <stringAttribute key="profile_options.aie_trace_buffer_units" value="M"/>
+    <stringAttribute key="profile_options.continuous_trace" value="false"/>
+    <stringAttribute key="profile_options.continuous_trace_interval" value="10"/>
+    <stringAttribute key="profile_options.data_transfer_trace" value="coarse"/>
+    <stringAttribute key="profile_options.dpu_profile" value="false"/>
+    <stringAttribute key="profile_options.lop_trace" value="false"/>
+    <stringAttribute key="profile_options.opencl_summary" value="true"/>
+    <stringAttribute key="profile_options.opencl_trace" value="false"/>
+    <stringAttribute key="profile_options.power_profile" value="false"/>
+    <stringAttribute key="profile_options.profile_interval" value="1000"/>
+    <stringAttribute key="profile_options.stall_trace" value="off"/>
+    <stringAttribute key="profile_options.trace_buffer_size" value="1"/>
+    <stringAttribute key="profile_options.xrt_Trace" value="false"/>
 </launchConfiguration>

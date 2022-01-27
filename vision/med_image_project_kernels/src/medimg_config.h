@@ -24,6 +24,7 @@
 #include "common/xf_utility.hpp"
 
 #include "imgproc/xf_threshold.hpp"
+#include "imgproc/xf_erosion.hpp"
 #include "xf_config_params.h"
 
 typedef ap_uint<8> ap_uint8_t;
@@ -40,9 +41,37 @@ typedef ap_uint<64> ap_uint64_t;
 #define NPIX XF_NPPC1
 #endif
 
-void medimg_accel(xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX>& _src,
+// Resolve optimization type:
+#if NO
+#define NPC1 XF_NPPC1
+#if GRAY
+#define PTR_WIDTH 8
+#else
+#define PTR_WIDTH 32
+#endif
+#endif
+
+#if RO
+#define NPC1 XF_NPPC8
+#if GRAY
+#define PTR_WIDTH 64
+#else
+#define PTR_WIDTH 256
+#endif
+#endif
+// Set pixel depth:
+#if GRAY
+#define TYPE XF_8UC1
+#else
+#define TYPE XF_8UC3
+#endif
+/* config width and height */
+#define WIDTH 3840
+#define HEIGHT 2160
+
+/*void medimg_accel(xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX>& _src,
                      xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX>& _dst,
                      unsigned char thresh,
-                     unsigned char maxval);
+                     unsigned char maxval);*/
 
 #endif // end of _XF_THRESHOLD_CONFIG_H_
