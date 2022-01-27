@@ -7,3 +7,12 @@
 10:19:27 INFO  : plnx-install-location is set to ''
 10:19:27 INFO  : Successfully done query RDI_DATADIR 
 10:19:27 INFO  : Successfully done setting workspace for the tool. 
+15:13:43 INFO  : Logs will be stored at '/home/centos/medical-image-processing/vision/IDE.log'.
+15:13:44 INFO  : Launching XSCT server: xsct -n  -interactive /home/centos/medical-image-processing/vision/temp_xsdb_launch_script.tcl
+15:13:44 INFO  : Platform repository initialization has completed.
+15:13:44 INFO  : Registering command handlers for Vitis TCF services
+15:13:48 INFO  : XSCT server has started successfully.
+15:13:49 INFO  : Successfully done setting XSCT server connection channel  
+15:13:49 INFO  : plnx-install-location is set to ''
+15:13:49 INFO  : Successfully done query RDI_DATADIR 
+15:13:49 INFO  : Successfully done setting workspace for the tool. 

@@ -25,6 +25,7 @@
 
 #include "imgproc/xf_threshold.hpp"
 #include "imgproc/xf_erosion.hpp"
+#include "imgproc/xf_dilation.hpp"
 #include "xf_config_params.h"
 
 typedef ap_uint<8> ap_uint8_t;

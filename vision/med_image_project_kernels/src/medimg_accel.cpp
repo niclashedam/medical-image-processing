@@ -56,13 +56,18 @@ void medimg_accel(ap_uint<INPUT_PTR_WIDTH>* img_inp,
     xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX> threshold_out(rows, cols);
 	#pragma HLS stream variable=threshold_out.data depth=2
 
+    xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX> erode_out(rows, cols);
+	#pragma HLS stream variable=erode_out.data depth=2
+
     #pragma HLS DATAFLOW
 
     xf::cv::Array2xfMat<INPUT_PTR_WIDTH, XF_8UC1, HEIGHT, WIDTH, NPIX>(img_inp, in_mat);
 
     xf::cv::Threshold<THRESH_TYPE, XF_8UC1, HEIGHT, WIDTH, NPIX>(in_mat, threshold_out, thresh, maxval);
 
-    xf::cv::erode<XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, KERNEL_SHAPE, FILTER_SIZE, FILTER_SIZE, ITERATIONS, NPC1>(threshold_out, out_mat, _kernel);
+    xf::cv::erode<XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, KERNEL_SHAPE, FILTER_SIZE, FILTER_SIZE, ITERATIONS, NPC1>(treshold_out, erode_out, _kernel);
+
+    xf::cv::dilate<XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, KERNEL_SHAPE, FILTER_SIZE, FILTER_SIZE, ITERATIONS, NPC1>(erode_out, out_mat, _kernel);
 
     xf::cv::xfMat2Array<OUTPUT_PTR_WIDTH, XF_8UC1, HEIGHT, WIDTH, NPIX>(out_mat, img_out);
 }
