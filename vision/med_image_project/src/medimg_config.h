@@ -22,6 +22,7 @@
 #include "common/xf_utility.hpp"
 #include "hls_stream.h"
 #include "imgproc/xf_canny.hpp"
+#include "imgproc/xf_dilation.hpp"
 #include "imgproc/xf_edge_tracing.hpp"
 #include "xf_config_params.h"
 

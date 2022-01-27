@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
         return -1;
     }
 
-    cv::Mat in_img, out_img, ocv_thresh, ocv_erode, bw_img;
+    cv::Mat in_img, out_img, ocv_thresh, ocv_erode, bw_img, ocv_dilate;
 
     unsigned short in_width, in_height;
 
@@ -47,6 +47,7 @@ int main(int argc, char** argv) {
     out_img.create(in_img.rows, in_img.cols, in_img.depth());
     ocv_thresh.create(in_img.rows, in_img.cols, in_img.depth());
     ocv_erode.create(in_img.rows, in_img.cols, in_img.depth());
+    ocv_dilate.create(in_img.rows, in_img.cols, in_img.depth());
     bw_img.create(in_img.rows, in_img.cols, in_img.depth());
 
     cv::bitwise_not(in_img,bw_img);
@@ -72,6 +73,8 @@ int main(int argc, char** argv) {
     imwrite("thresh_img.jpg", ocv_thresh);
     cv::erode(ocv_thresh, ocv_erode, element);
     imwrite("erode_img.jpg", ocv_erode);
+    cv::dilate(ocv_erode, ocv_dilate, element);
+    imwrite("dilate_img.jpg", ocv_dilate);
 
     /////////////////////////////////////// CL ////////////////////////
 
@@ -145,6 +148,7 @@ int main(int argc, char** argv) {
     out_img.~Mat();
     ocv_thresh.~Mat();
     ocv_erode.~Mat();
+    ocv_dilate.~Mat();
 
     return 0;
 }
