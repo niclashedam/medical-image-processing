@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
         return -1;
     }
 
-    cv::Mat in_img, out_img, ocv_ref, in_gray, diff;
+    cv::Mat in_img, out_img, ocv_ref;
 
     unsigned short in_width, in_height;
 
@@ -42,9 +42,9 @@ int main(int argc, char** argv) {
     in_width = in_img.cols;
     in_height = in_img.rows;
 
-    ocv_ref.create(in_img.rows, in_img.cols, in_img.depth());
     out_img.create(in_img.rows, in_img.cols, in_img.depth());
-    diff.create(in_img.rows, in_img.cols, in_img.depth());
+
+    imwrite("bw_img.jpg", in_img);
 
 
     unsigned char thresh = 100;
@@ -58,8 +58,8 @@ int main(int argc, char** argv) {
         shape[i] = element.data[i];
     }
 
-    //size_t vec_in_size_bytes = FILTER_SIZE * FILTER_SIZE * sizeof(unsigned char);
-    size_t vec_in_size_bytes = FILTER_SIZE * FILTER_SIZE;
+    size_t vec_in_size_bytes = FILTER_SIZE * FILTER_SIZE * sizeof(unsigned char);
+    //size_t vec_in_size_bytes = FILTER_SIZE * FILTER_SIZE;
 
     /////////////////////////////////////// CL ////////////////////////
 
@@ -86,14 +86,14 @@ int main(int argc, char** argv) {
 
     std::vector<cl::Memory> inBufVec, outBufVec;
     OCL_CHECK(err, cl::Buffer imageToDevice(context, CL_MEM_READ_ONLY, (height * width), NULL, &err));
+    OCL_CHECK(err, cl::Buffer buffer_inShape(context, CL_MEM_READ_ONLY, vec_in_size_bytes, NULL, &err));
     OCL_CHECK(err, cl::Buffer imageFromDevice(context, CL_MEM_WRITE_ONLY, (height * width), NULL, &err));
     //OCL_CHECK(err, cl::Buffer buffer_inShape(context, CL_MEM_READ_ONLY, vec_in_size_bytes, NULL, &err));
-    OCL_CHECK(err, cl::Buffer buffer_inShape(context, CL_MEM_READ_ONLY, vec_in_size_bytes, NULL, &err));
 
     // Set the kernel arguments
     OCL_CHECK(err, err = kernel.setArg(0, imageToDevice));
-    OCL_CHECK(err, err = kernel.setArg(1, imageFromDevice));
-    OCL_CHECK(err, err = kernel.setArg(2, buffer_inShape));
+    OCL_CHECK(err, err = kernel.setArg(1, buffer_inShape));
+    OCL_CHECK(err, err = kernel.setArg(2, imageFromDevice));
     OCL_CHECK(err, err = kernel.setArg(3, height));
     OCL_CHECK(err, err = kernel.setArg(4, width));
     OCL_CHECK(err, err = kernel.setArg(5, thresh));
@@ -102,13 +102,7 @@ int main(int argc, char** argv) {
     cl::Event event;
     OCL_CHECK(err, q.enqueueWriteBuffer(imageToDevice, CL_TRUE, 0, (height * width), in_img.data));
     //OCL_CHECK(err, q.enqueueWriteBuffer(buffer_inShape, CL_TRUE, 0, vec_in_size_bytes, shape.data()));
-    OCL_CHECK(err, q.enqueueWriteBuffer(buffer_inShape,    // buffer on the FPGA
-                                            CL_TRUE,           // blocking call
-                                            0,                 // buffer offset in bytes
-                                            vec_in_size_bytes, // Size in bytes
-                                            shape.data(),      // Pointer to the data to copy
-                                            nullptr, &event));
-    //OCL_CHECK(err, queue.enqueueWriteBuffer(buffer_inShape, CL_TRUE, 0, vec_in_size_bytes, shape.data(),nullptr, &event));
+    OCL_CHECK(err, q.enqueueWriteBuffer(buffer_inShape, CL_TRUE, 0, vec_in_size_bytes, shape.data(), nullptr, &event));
 
     // Profiling Objects
     cl_ulong start = 0;
@@ -134,6 +128,9 @@ int main(int argc, char** argv) {
 
     // Write output image
     imwrite("hls_out.jpg", out_img);
+
+    in_img.~Mat();
+    out_img.~Mat();
 
     return 0;
 }

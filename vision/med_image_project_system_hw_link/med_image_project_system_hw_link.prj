@@ -6,8 +6,8 @@
         <kernels name="medimg_accel" projectName="med_image_project_kernels">
           <computeUnits name="medimg_accel_1" slr="">
             <args name="img_inp" master="true" memory=""/>
-            <args name="img_out" master="true" memory=""/>
             <args name="process_shape" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
             <args name="rows"/>
             <args name="cols"/>
             <args name="thresh"/>
@@ -21,12 +21,12 @@
         <kernels name="medimg_accel" projectName="med_image_project_kernels">
           <computeUnits name="medimg_accel_1" slr="">
             <args name="img_inp" master="true" memory=""/>
+            <args name="process_shape" master="true" memory=""/>
             <args name="img_out" master="true" memory=""/>
             <args name="rows"/>
             <args name="cols"/>
             <args name="thresh"/>
             <args name="maxval"/>
-            <args name="process_shape" master="true" memory=""/>
           </computeUnits>
         </kernels>
       </binaryContainers>
@@ -38,8 +38,8 @@
         <kernels name="medimg_accel" projectName="med_image_project_kernels">
           <computeUnits name="medimg_accel_1" slr="">
             <args name="img_inp" master="true" memory=""/>
-            <args name="img_out" master="true" memory=""/>
             <args name="process_shape" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
             <args name="rows"/>
             <args name="cols"/>
             <args name="thresh"/>
@@ -50,23 +50,15 @@
     </configBuildOptions>
     <lastBuildOptions xsi:type="hwlink:LinkOptions" target="hw_emu">
       <binaryContainers name="krnl_medimg">
-        <kernels name="erosion" projectName="med_image_project_kernels">
-          <computeUnits name="erosion_1" slr="">
-            <args name="img_in" master="true" memory=""/>
-            <args name="process_shape" master="true" memory=""/>
-            <args name="img_out" master="true" memory=""/>
-            <args name="height"/>
-            <args name="width"/>
-          </computeUnits>
-        </kernels>
         <kernels name="medimg_accel" projectName="med_image_project_kernels">
           <computeUnits name="medimg_accel_1" slr="">
             <args name="img_inp" master="true" memory=""/>
+            <args name="process_shape" master="true" memory=""/>
             <args name="img_out" master="true" memory=""/>
-            <args name="thresh"/>
-            <args name="maxval"/>
             <args name="rows"/>
             <args name="cols"/>
+            <args name="thresh"/>
+            <args name="maxval"/>
           </computeUnits>
         </kernels>
       </binaryContainers>
@@ -78,8 +70,8 @@
         <kernels name="medimg_accel" projectName="med_image_project_kernels">
           <computeUnits name="medimg_accel_1" slr="">
             <args name="img_inp" master="true" memory=""/>
-            <args name="img_out" master="true" memory=""/>
             <args name="process_shape" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
             <args name="rows"/>
             <args name="cols"/>
             <args name="thresh"/>

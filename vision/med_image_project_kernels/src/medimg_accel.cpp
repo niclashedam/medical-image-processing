@@ -18,15 +18,15 @@
 
 extern "C" {
 void medimg_accel(ap_uint<INPUT_PTR_WIDTH>* img_inp,
-		ap_uint<OUTPUT_PTR_WIDTH>* img_out,
 		unsigned char* process_shape,
+		ap_uint<OUTPUT_PTR_WIDTH>* img_out,
 		int rows,
 		int cols,
 		unsigned char thresh,
 		unsigned char maxval) {
     #pragma HLS INTERFACE m_axi     port=img_inp  offset=slave bundle=gmem0
-    #pragma HLS INTERFACE m_axi     port=img_out  offset=slave bundle=gmem1
-	#pragma HLS INTERFACE m_axi     port=process_shape offset=slave  bundle=gmem2
+	#pragma HLS INTERFACE m_axi     port=process_shape offset=slave  bundle=gmem1
+    #pragma HLS INTERFACE m_axi     port=img_out  offset=slave bundle=gmem2
 
     #pragma HLS INTERFACE s_axilite port=rows
     #pragma HLS INTERFACE s_axilite port=cols
@@ -53,14 +53,16 @@ void medimg_accel(ap_uint<INPUT_PTR_WIDTH>* img_inp,
     xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX> out_mat(rows, cols);
     #pragma HLS stream variable=out_mat.data depth=2
 
+    xf::cv::Mat<XF_8UC1, HEIGHT, WIDTH, NPIX> threshold_out(rows, cols);
+	#pragma HLS stream variable=threshold_out.data depth=2
+
     #pragma HLS DATAFLOW
 
     xf::cv::Array2xfMat<INPUT_PTR_WIDTH, XF_8UC1, HEIGHT, WIDTH, NPIX>(img_inp, in_mat);
 
-    //xf::cv::Threshold<THRESH_TYPE, XF_8UC1, HEIGHT, WIDTH, NPIX>(in_mat, thresholdOut, thresh, maxval);
-    xf::cv::Threshold<THRESH_TYPE, XF_8UC1, HEIGHT, WIDTH, NPIX>(in_mat, out_mat, thresh, maxval);
+    xf::cv::Threshold<THRESH_TYPE, XF_8UC1, HEIGHT, WIDTH, NPIX>(in_mat, threshold_out, thresh, maxval);
 
-    //xf::cv::erode<XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, KERNEL_SHAPE, FILTER_SIZE, FILTER_SIZE, ITERATIONS, NPC1>(thresholdOut, out_mat, _kernel);
+    xf::cv::erode<XF_BORDER_CONSTANT, TYPE, HEIGHT, WIDTH, KERNEL_SHAPE, FILTER_SIZE, FILTER_SIZE, ITERATIONS, NPC1>(threshold_out, out_mat, _kernel);
 
     xf::cv::xfMat2Array<OUTPUT_PTR_WIDTH, XF_8UC1, HEIGHT, WIDTH, NPIX>(out_mat, img_out);
 }
