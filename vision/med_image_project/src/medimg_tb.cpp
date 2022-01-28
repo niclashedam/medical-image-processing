@@ -21,7 +21,7 @@
 #include <iostream>
 
 int main(int argc, char** argv) {
-    if (argc != 4) {
+    if (argc < 4) {
         fprintf(stderr, "Invalid Number of Arguments!\nUsage:\n");
         fprintf(stderr, "<Executable Name> <input image path> <threshold> <max_value> \n");
         return -1;
@@ -88,7 +88,8 @@ int main(int argc, char** argv) {
     OCL_CHECK(err, cl::CommandQueue q(context, device, CL_QUEUE_PROFILING_ENABLE, &err));
 
     std::string device_name = device.getInfo<CL_DEVICE_NAME>();
-    std::string binaryFile = xcl::find_binary_file(device_name, "krnl_medimg");
+    //std::string binaryFile = xcl::find_binary_file(device_name, "krnl_medimg");
+    std::string binaryFile = argv[4];
     cl::Program::Binaries bins = xcl::import_binary_file(binaryFile);
     devices.resize(1);
 

@@ -151,9 +151,13 @@
                             							
                             <tool id="com.xilinx.ide.accel.tool.hwKernelCompiler.74144410" name="V++ Kernel Compiler" superClass="com.xilinx.ide.accel.tool.hwKernelCompiler">
                                 								
-                                <option id="com.xilinx.accelerated.toolchain.hw_compiler.include_paths.1862246395" name="Include paths (-I)" superClass="com.xilinx.accelerated.toolchain.hw_compiler.include_paths" valueType="includePath">
+                                <option id="com.xilinx.accelerated.toolchain.hw_compiler.include_paths.1862246395" name="Include paths (-I)" superClass="com.xilinx.accelerated.toolchain.hw_compiler.include_paths" useByScannerDiscovery="false" valueType="includePath">
                                     									
                                     <listOptionValue builtIn="false" value="${workspace_loc:${ProjName}/src/build}"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:${ProjName}/libs/xf_opencv/L1/include/}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${workspace_loc:${ProjName}/libs/xf_opencv/ext/xcl2/}&quot;"/>
                                     								
                                 </option>
                                 								
