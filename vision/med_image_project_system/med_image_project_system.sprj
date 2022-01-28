@@ -30,5 +30,10 @@
       <applications name="med_image_project_kernels" domainName="" domainPrettyName="pl" appBuildConfig="Hardware"/>
       <applications name="med_image_project" domainName="x86" domainPrettyName="x86" appBuildConfig="Hardware"/>
     </configBuildOptions>
+    <lastBuildOptions xsi:type="systemproject:SystemOptions" target="hw">
+      <applications name="med_image_project_system_hw_link" domainName="" domainPrettyName="pl" appBuildConfig="Hardware"/>
+      <applications name="med_image_project_kernels" domainName="" domainPrettyName="pl" appBuildConfig="Hardware"/>
+      <applications name="med_image_project" domainName="x86" domainPrettyName="x86" appBuildConfig="Hardware"/>
+    </lastBuildOptions>
   </configuration>
 </systemproject:SystemProject>

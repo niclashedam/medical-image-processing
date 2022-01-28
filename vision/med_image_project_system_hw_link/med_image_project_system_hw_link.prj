@@ -80,5 +80,20 @@
         </kernels>
       </binaryContainers>
     </configBuildOptions>
+    <lastBuildOptions xsi:type="hwlink:LinkOptions" target="hw">
+      <binaryContainers name="krnl_medimg">
+        <kernels name="medimg_accel" projectName="med_image_project_kernels">
+          <computeUnits name="medimg_accel_1" slr="">
+            <args name="img_inp" master="true" memory=""/>
+            <args name="process_shape" master="true" memory=""/>
+            <args name="img_out" master="true" memory=""/>
+            <args name="rows"/>
+            <args name="cols"/>
+            <args name="thresh"/>
+            <args name="maxval"/>
+          </computeUnits>
+        </kernels>
+      </binaryContainers>
+    </lastBuildOptions>
   </configuration>
 </hwlink:HwLinkProject>

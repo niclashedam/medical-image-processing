@@ -63,7 +63,7 @@
     <stringAttribute key="launch.version" value=""/>
     <booleanAttribute key="multilaunch.active_build_config" value="false"/>
     <mapAttribute key="multilaunch.app_args">
-        <mapEntry key="med_image_project" value="../../data/512x512.jpg"/>
+        <mapEntry key="med_image_project" value="../../data/512x512.jpg 95 255"/>
     </mapAttribute>
     <mapAttribute key="multilaunch.app_launch_cfg_files"/>
     <booleanAttribute key="multilaunch.auto_update_args" value="false"/>
